@@ -1,8 +1,10 @@
 <template>
     <div class="header">
         <div class="logo">
-            <img src="" alt="">
-            <span>DPP的个人站点</span>
+            <nuxt-link to="/">
+                <img src="" alt="">
+                <span>DPP的个人站点</span>
+            </nuxt-link>
         </div>
         <div class="header_right">
             <span>登录</span>
