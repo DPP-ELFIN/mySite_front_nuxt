@@ -1,14 +1,15 @@
 
 <template>
     <div class="about">
-        {{ id }} -------------{{ role }}
+        <NuxtLayout>
+            <AboutMain />
+        </NuxtLayout>
     </div>
 </template>
 
 
 <script setup lang='ts'>
-const route = useRoute()
-const { id, role } = route.params
+import AboutMain from './c-comp/AboutMain.vue';
 
 </script>
 
