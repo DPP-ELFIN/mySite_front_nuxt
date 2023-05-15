@@ -1,14 +1,20 @@
 <template>
     <div class="docs_main">
         <div class="card">
-            <el-card :body-style="{ padding: '0px' }" shadow="hover" v-for="i in 10" :key="i">
-                <img src="~/assets/img/TS.png" class="image" />
-                <div class="content">
-                    <p class="title">TS</p>
-                    <p class="detail">TS</p>
-                    <p class="time">{{ currentDate }}</p>
-                </div>
-            </el-card>
+            <template v-for="i in 10" :key="i">
+                <NuxtLink :to="`/about-aaa/${i}`">
+                    <el-card :body-style="{ padding: '0px' }" shadow="hover">
+                        <img src="~/assets/img/TS.png" class="image" />
+                        <div class="content">
+                            <p class="title">TS</p>
+                            <p class="detail">TS</p>
+                            <p class="time">{{ currentDate }}</p>
+                        </div>
+                    </el-card>
+                </NuxtLink>
+            </template>
+
+
 
         </div>
         <div class="about_my">
