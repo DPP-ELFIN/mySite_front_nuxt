@@ -12,7 +12,9 @@
                 <p>有任何建议可以在本网站与我留言，我将尽力回复...</p>
                 <p>目前在职，寻找机会中，欢迎内推...</p>
                 <div class="btn">
-                    <el-button type="info">进入文档</el-button>
+                    <el-button type="info">
+                        <nuxt-link to="/docs">进入文档</nuxt-link>
+                    </el-button>
                     <div class="pro_address">
                         GitHub：<nuxt-link target="_blank"
                             to="https://github.com/DPP-ELFIN/mySite_front_nuxt">https://github.com/DPP-ELFIN/mySite_front_nuxt</nuxt-link>

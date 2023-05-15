@@ -1,20 +1,8 @@
 <template>
     <div class="layout">
-        <!-- <div class="header">header</div> -->
-
-
-        <el-container>
-            <el-header>
-                <Header />
-            </el-header>
-            <el-main>
-                <slot />
-            </el-main>
-            <el-footer>
-                <Footer />
-            </el-footer>
-        </el-container>
-        <!-- <div class="gooter">gooter</div> -->
+        <Header />
+        <slot />
+        <Footer />
     </div>
 </template>
 
@@ -28,7 +16,8 @@ import Footer from '@/components/app-footer/index.vue'
 
 <style scoped lang='scss'>
 .layout {
-    width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 </style>

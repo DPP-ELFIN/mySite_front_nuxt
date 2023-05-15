@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   css: [
     // "@/assets/css/global.scss", //引入css文件作为全局样式 字体图标类似
     "normalize.css", // reset.css
+    "~/assets/fonts/LCD.css",
   ],
   modules: ["@element-plus/nuxt"],
   appConfig: {
