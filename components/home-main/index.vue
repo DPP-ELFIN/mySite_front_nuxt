@@ -33,7 +33,10 @@
                 <p>本人力所能及的毫无保留的解答</p>
                 <p>（还未建群，有需要会建立一个项目的开发沟通群）</p>
                 <div class="btn">
-                    <el-button type="info">开发进度</el-button><span class="pro_address">开发中...</span>
+                    <el-button type="info">
+                        <nuxt-link to="/plane">开发进度</nuxt-link>
+                    </el-button>
+                    <span class="pro_address">开发中...</span>
                 </div>
             </div>
         </div>
