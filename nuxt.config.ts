@@ -4,13 +4,12 @@
 
 export default defineNuxtConfig({
   css: [
-    // "@/assets/css/global.scss", //引入css文件作为全局样式 字体图标类似
     "normalize.css", // reset.css
     "~/assets/fonts/LCD.css",
   ],
   modules: ["@element-plus/nuxt"],
   appConfig: {
-    title: "MY_SITE_FRONT",
+    title: "DPP的个人站点",
   },
   runtimeConfig: {
     appkey: "31f1540a-c463-4f47-85cd-ef0f3bc226a7",
@@ -18,16 +17,13 @@ export default defineNuxtConfig({
       appName: "dpp_front",
     },
   },
-
   // spa
   // ssr: false,
-
   router: {
     options: {
-      // hashMode: true, //开启hash模式 默认 history ，hash只在spa里生效
+      // hashMode: true,
     },
   },
-
   vite: {
     css: {
       preprocessorOptions: {
