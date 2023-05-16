@@ -2,6 +2,7 @@
   <nuxt-page />
 </template>
 <script setup>
+import * as ElementPlusIconsVue from '@element-plus/icons-vue';
 
 const runtime = useRuntimeConfig()
 
@@ -18,7 +19,10 @@ onMounted(() => {
   document.title = appconfig.title
 })
 
-
+const nuxtApp = useNuxtApp()
+  for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    nuxtApp.vueApp.component(key, component);
+  }
 </script>
 
 <style lang="scss">

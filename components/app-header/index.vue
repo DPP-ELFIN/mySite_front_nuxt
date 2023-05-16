@@ -7,15 +7,24 @@
             </nuxt-link>
         </div>
         <div class="header_right">
-            <span>登录</span>
-            <span>注册</span>
+            <span @click="login">登录</span>
+        <span @click="regist">注册</span>
         </div>
     </div>
+    <Login :drawer="drawer" @close="drawer = false" />
+    <Regist :drawer="drawerRegist" @close="drawerRegist = false" />
 </template>
 
 
 <script setup lang='ts'>
-
+const drawer = ref(false);
+const drawerRegist = ref(false);
+const login = () => {
+  drawer.value = true;
+};
+const regist = () => {
+    drawerRegist.value = true;
+};
 
 </script>
 
