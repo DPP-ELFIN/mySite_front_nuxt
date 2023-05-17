@@ -20,9 +20,11 @@ onMounted(() => {
 })
 
 const nuxtApp = useNuxtApp()
-  for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-    nuxtApp.vueApp.component(key, component);
-  }
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  nuxtApp.vueApp.component(key, component);
+}
+
+console.log(import.meta.env);
 </script>
 
 <style lang="scss">

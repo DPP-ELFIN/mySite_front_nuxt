@@ -2,7 +2,12 @@
 
 import { AsyncData, UseFetchOptions } from "nuxt/dist/app/composables";
 
-const BASE_URL = "http://127.0.0.1:3333/api";
+let BASE_URL = "";
+if (import.meta.env.DEV) {
+  BASE_URL = "http://127.0.0.1:3333/api";
+} else if (import.meta.env.PROD) {
+  BASE_URL = "https://106.14.121.85:3333/api";
+}
 
 type Methods = "get" | "post" | "delete";
 
