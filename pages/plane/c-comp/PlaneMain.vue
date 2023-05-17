@@ -10,9 +10,9 @@
             <el-table ref="ElTableRefs" :data="tableData" style="width: 100%" max-height="740" border>
                 <el-table-column type="index" width="60" label="索引" />
                 <el-table-column prop="name" label="名称" width="180" align="center" />
-                <el-table-column prop="date" label="创建时间" width="180" align="center" />
-                <el-table-column prop="date" label="指定时间" width="180" align="center" />
-                <el-table-column prop="date" label="完成时间" width="180" align="center" />
+                <el-table-column prop="createTime" label="创建时间" width="180" align="center" :formatter="timeFormat" />
+                <el-table-column prop="time" label="指定时间" width="180" align="center" :formatter="timeFormat" />
+                <el-table-column prop="overTime" label="完成时间" width="180" align="center" :formatter="timeFormat" />
                 <el-table-column prop="person" label="开发人员" width="180" align="center" />
                 <el-table-column prop="remark" label="备注" width="360" align="center" />
                 <el-table-column prop="status" label="状态" width="100" align="center">
@@ -36,41 +36,44 @@
 
 
 <script setup lang='ts'>
-import { getDemandApi } from '@/service/api'
+import { getDemandApi, editStatusApi } from '@/service/api'
+import { dayjs } from 'element-plus'
 
-
-
-onMounted(async () => {
-    const { data } = await getDemandApi({ about: 0 })
-    console.log(data.value);
-})
-
+const tableData = ref([])
 const about = ref(0)
+const getDemandFn = async () => {
+    const { data } = await getDemandApi({ about: about.value })
+    if (data.value?.code !== 200) return ElMessage.error(data.value?.msg)
+    tableData.value = data.value?.data
+}
+getDemandFn()
+
+const timeFormat = (row: any, column: any, cellValue: any) => {
+    if (!cellValue) return cellValue
+    return dayjs(cellValue).format('YYYY-MM-DD');
+}
 const list = [
     { index: 0, name: '前端页面' },
     { index: 1, name: '后台管理系统' },
     { index: 2, name: '服务端' },
 ]
-const tableData = [
-    {
-        date: '2016-05-03',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles',
-    },
 
-]
-
-const bug = (row: any) => {
-    console.log(row);
-
+const bug = async (row: any) => {
+    const { data } = await editStatusApi({ id: row._id, status: 2 })
+    if (data.value?.code !== 201) return ElMessage.error(data.value?.msg)
+    ElMessage.success(data.value?.msg)
+    getDemandFn()
 }
-const said = (row: any) => {
-    console.log(row);
-
+const said = async (row: any) => {
+    // const { data } = await editStatusApi({ id: row._id, remark: 2 })
+    // if (data.value?.code !== 201) return ElMessage.error(data.value?.msg)
+    // ElMessage.success(data.value?.msg)
+    // getDemandFn()
 }
 
 const clickList = (index: number) => {
     about.value = index
+    getDemandFn()
 }
 </script>
 

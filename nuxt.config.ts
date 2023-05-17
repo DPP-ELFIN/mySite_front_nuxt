@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     },
   },
   // spa
-  // ssr: false,
+  ssr: false,
   router: {
     options: {
       // hashMode: true,

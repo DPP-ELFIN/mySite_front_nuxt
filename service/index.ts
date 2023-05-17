@@ -19,20 +19,13 @@ class MyRequest {
     };
     if (methods === "get" || methods === "delete") {
       newOptions.query = data;
-      newOptions.headers = {
-        ...newOptions.headers,
-        "Content-Type": "application/json;charset=UTF-8",
-      };
     }
     if (methods === "post") {
       newOptions.body = data;
-      newOptions.headers = {
-        ...newOptions.headers,
-        "Content-Type": "application/x-www-form-urlencoded",
-      };
     }
 
     return new Promise((resolve, reject) => {
+      console.log(newOptions.body);
       useFetch(url, newOptions)
         .then((res) => {
           // res => data:T , refresh, pendding,error , ...
