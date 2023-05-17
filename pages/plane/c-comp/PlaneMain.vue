@@ -36,6 +36,14 @@
 
 
 <script setup lang='ts'>
+import { getDemandApi } from '@/service/api'
+
+
+
+onMounted(async () => {
+    const { data } = await getDemandApi({ about: 0 })
+    console.log(data.value);
+})
 
 const about = ref(0)
 const list = [
