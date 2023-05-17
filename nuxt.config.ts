@@ -24,6 +24,7 @@ export default defineNuxtConfig({
       // hashMode: true,
     },
   },
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -31,6 +32,26 @@ export default defineNuxtConfig({
           additionalData: "@use '~/assets/css/global.scss' as *;", //自动给 scss 模块添加 '@use '~/assets/css/global.scss' as *
         },
       },
+    },
+  },
+  app: {
+    head: {
+      title: "DPP的个人站点",
+      meta: [
+        {
+          name: "description",
+          content: "DPP的个人站点,个人博客，技术分享，文档分享",
+        },
+        {
+          name: "keywords",
+          content: "个人站点,博客,技术,文档,前端，vue2，vue3，nuxt，vite，node，express，ts，js，html，css，项目实战",
+        },
+        {
+          name: "viewport",
+          content: "width=device-width,initial-scale=1",
+        },
+      ],
+      link: [{ rel: "icon", type: "image/vnd.microsoft.icon", href: "/favicon.ico" }],
     },
   },
 });
